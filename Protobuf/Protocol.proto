@@ -1,0 +1,61 @@
+syntax = "proto3";
+package Protocol;
+
+import "Struct.proto";
+
+message C_LOGIN
+{
+	string name = 1;
+}
+message S_LOGIN
+{
+	bool success = 1;
+	string name = 2;
+	uint64 id = 3;
+}
+
+message C_ENTER_ROOM
+{
+	uint64 roomNumber = 1;
+}
+
+message S_ENTER_ROOM
+{
+	bool success =1;
+	uint64 roomNumber = 2;
+	repeated User users = 3;
+}
+
+message C_LEAVE_ROOM
+{
+	uint64 userId = 1;
+}
+
+message S_LEAVE_ROOM
+{
+	bool success = 1;
+}
+
+message S_OTHER_ENTERED_ROOM
+{
+	User user = 1;
+	uint64 roomNumber = 2;
+}
+
+message S_OTHER_LEAVED_ROOM
+{
+	User user = 1;
+	uint64 roomNumber = 2;
+}
+
+message C_CHAT
+{
+	string msg =1;
+}
+
+message S_CHAT
+{
+	uint64 userId = 1;
+	string name = 2;
+	string msg =3;
+}

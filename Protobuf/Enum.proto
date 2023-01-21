@@ -1,0 +1,9 @@
+syntax = "proto3";
+package Protocol;
+
+enum UserType
+{
+	PLAYER_TYPE_NONE = 0;
+	PLAYER_TYPE_NORMAL = 1;
+
+}
