@@ -48,6 +48,12 @@ jobs:
         out: ./Libraries/ServerCore/Release/
         token: ${{ secrets.GITHUB_TOKEN }}
         
+    - name : pwd
+      run: pwd
+      
+    - name : ls
+      run: ls -al
+      
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
       # Add additional options to the MSBuild command line here (like platform or verbosity level).
