@@ -19,11 +19,6 @@ permissions:
   contents: read
 
 jobs:
-  download-Dependencies:
-    runs-on: windows-latest
-    steps:
-
-      
       
   build:
     runs-on: windows-latest
