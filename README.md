@@ -8,8 +8,8 @@ This is a chatting program. with console UI.
 
 # How to Build
 1. Download ServerCore([ ServerCore github](https://github.com/jidungg/GameServer)) library.
-2. Put **ServerCore.lib** file in Libraries\ServerCore\Debug(Release) directory.
-3. Download **protobuf** and get lib files.
+2. Put **ServerCore.lib** file(1.0.0 ver) in Libraries\ServerCore\Debug(Release) directory.
+3. Download **protobuf**(3.xx ver) and get lib files.
 4. Put  **libprotobufd.lib** in Libraries\Protobuf\Debug directory, And **libprotobuf.lib** in Libraries\Protobuf\Release directory.
 5. Build each projects.
 
