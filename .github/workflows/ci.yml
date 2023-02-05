@@ -52,7 +52,7 @@ jobs:
       run: pwd
       
     - name : ls
-      run: ls -al
+      run: ls
       
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
