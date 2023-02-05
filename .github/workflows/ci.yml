@@ -43,12 +43,18 @@ jobs:
         # the name of the file in the release to download
         file: ServerCore.lib
         # the directory where the file will be stored on local disk
-        out: ./
+        out: ./Libraries/ServerCore/Release/
         token: ${{ secrets.GITHUB_TOKEN }}
     - name : pwd
       run: pwd
     - name : ls
       run: ls 
+    - name : lsLibraries
+      run: ls ./Libraries
+    - name : lsServerCore
+      run: ls ./Libraries/ServerCore
+    - name : lsRelease
+      run: ls ./Libraries/ServerCore/Release
       
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
