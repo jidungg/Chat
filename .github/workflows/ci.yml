@@ -32,7 +32,7 @@ jobs:
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: nuget restore ${{env.SOLUTION_FILE_PATH}}
       
-    - name: Tagged Release Asset Download
+    - name: ServerCore.lib Download
       # You may pin to the exact commit or the version.
       # uses: blauqs/actions-download-asset@7a29cefdfccb75e4b1382b64a4f7f994f398a159
       uses: blauqs/actions-download-asset@v1.2
@@ -45,7 +45,7 @@ jobs:
         file: ServerCore.lib
         # the directory where the file will be stored on local disk
         out: ./Libraries/ServerCore/Release/
-
+        token: ${{ secrets.GITHUB_TOKEN }}
         
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
