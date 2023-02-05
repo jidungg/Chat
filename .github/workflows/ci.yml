@@ -52,7 +52,7 @@ jobs:
       run: pwd
       
     - name : ls
-      run: ls ./Libraries/ServerCore/Release
+      run: ls ./Libraries/ServerCore
       
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
