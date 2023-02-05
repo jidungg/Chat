@@ -43,7 +43,7 @@ jobs:
         # the name of the file in the release to download
         file: ServerCore.lib
         # the directory where the file will be stored on local disk
-        out: ./Libraries/ServerCore/Release/
+        out: ./Libraries/ServerCore/Release/ServerCore.lib
         token: ${{ secrets.GITHUB_TOKEN }}
     - name : pwd
       run: pwd
