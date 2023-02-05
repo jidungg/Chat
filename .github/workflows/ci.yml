@@ -41,6 +41,7 @@ jobs:
         repo: jidungg/GameServer
         # the version of the release to download from (defaults to latest)
         version: latest
+        prefix: 1.
         # the name of the file in the release to download
         file: ServerCore.lib
         # the directory where the file will be stored on local disk
