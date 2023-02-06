@@ -63,7 +63,10 @@ jobs:
       run : ls ../
     - name: lsProtobuf
       run : ls ../protobuf
-
+    - name: get-cmake
+      # You may pin to the exact commit or the version.
+      # uses: lukka/get-cmake@1a178d42f9f4f47310373da4f5ef02297ed5a6e8
+      uses: lukka/get-cmake@v3.25.2
         
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
