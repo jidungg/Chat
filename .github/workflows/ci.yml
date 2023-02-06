@@ -42,7 +42,7 @@ jobs:
         out: ./Libraries/ServerCore/Release/ServerCore.lib
         token: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Protobuf-Download
+    - name: ProtobufDownload
       uses: blauqs/actions-download-asset@v1.2
       with:
         repo: protocolbuffers/protobuf
@@ -52,6 +52,8 @@ jobs:
         out: ../protobuf
         token: ${{ secrets.GITHUB_TOKEN }}
         unpack: true
+    - name: lsProtobuf
+      run : ls ../protobuf
         
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
