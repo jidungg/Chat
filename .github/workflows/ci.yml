@@ -52,10 +52,11 @@ jobs:
         out: ../protobuf.zip
         token: ${{ secrets.GITHUB_TOKEN }}
         unpack: true
-    - name: lsProtobuf
-      run : ls ../protobuf
     - name: ls../
       run : ls ../
+    - name: lsProtobuf
+      run : ls ../protobuf
+
         
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
