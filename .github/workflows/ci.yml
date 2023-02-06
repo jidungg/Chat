@@ -46,8 +46,8 @@ jobs:
       uses: blauqs/actions-download-asset@v1.2
       with:
         repo: protocolbuffers/protobuf
-        version: v21.12
-        prefix: v21.
+        version: 21.12
+        prefix: v
         file: protobuf-cpp-3.21.12.zip
         out: ../protobuf
         token: ${{ secrets.GITHUB_TOKEN }}
