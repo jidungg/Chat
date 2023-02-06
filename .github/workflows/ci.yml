@@ -70,6 +70,13 @@ jobs:
       with:
         # Path to CMakeLists.txt.
         cmakeListsTxtPath: ../protobuf/protobuf-3.21.12/cmake/CMakeLists.txt
+        
+    - name : ls
+      run : |
+        ls ../
+        ls ../protobuf
+        ls ../protobuf/protobuf-3.21.12
+        ls ../protobuf/protobuf-3.21.12/cmake
     
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
