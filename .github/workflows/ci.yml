@@ -52,6 +52,13 @@ jobs:
         out: ../protobuf.zip
         token: ${{ secrets.GITHUB_TOKEN }}
         unpack: false
+    - name: extract-7z-action
+      uses: DuckSoft/extract-7z-action@v1.0
+      with:
+        # archive path to extract
+        pathSource:  ../protobuf.zip
+        # path to place the extract
+        pathTarget:  ../protobuf
     - name: ls../
       run : ls ../
     - name: lsProtobuf
