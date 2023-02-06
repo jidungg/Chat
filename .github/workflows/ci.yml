@@ -59,36 +59,15 @@ jobs:
         pathSource:  ../protobuf.zip
         # path to place the extract
         pathTarget:  ../protobuf
-    - name: get-cmake
-      # You may pin to the exact commit or the version.
-      # uses: lukka/get-cmake@1a178d42f9f4f47310373da4f5ef02297ed5a6e8
-      uses: lukka/get-cmake@v3.25.2
-      
-    - name : ls
-      run : |
-        ls ../
-        ls ../protobuf
-        ls ../protobuf/protobuf-3.21.12
-        ls ../protobuf/protobuf-3.21.12/cmake
-        ls D:\a\_temp\1949874275\cmake-3.25.2-windows-x86_64
-        ls D:\a\_temp\1949874275\cmake-3.25.2-windows-x86_64\bin\
         
-    - name: run-cmake
-      # You may pin to the exact commit or the version.
-      # uses: lukka/run-cmake@2d1ee0acb9c4f656ec9128fc7387d82ac4539816
-      uses: lukka/run-cmake@v10.3
+    - name: Install CMake
+      uses: cmake/cmake-action@v1
       with:
-        # Path to CMakeLists.txt.
-        cmakeListsTxtPath: ../protobuf/protobuf-3.21.12/cmake/CMakeLists.txt
-        
-    - name : ls
-      run : |
-        ls ../
-        ls ../protobuf
-        ls ../protobuf/protobuf-3.21.12
-        ls ../protobuf/protobuf-3.21.12/cmake
-        ls D:\a\_temp\1949874275\cmake-3.25.2-windows-x86_64
-        ls D:\a\_temp\1949874275\cmake-3.25.2-windows-x86_64\bin\
+        cmake-version: '3.19.4'
+
+    - name: Generate protobuf library solution with CMake
+      run: |
+        cmake -H . -B build
     
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
