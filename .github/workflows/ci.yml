@@ -49,7 +49,7 @@ jobs:
         version: 21.12
         prefix: v
         file: protobuf-cpp-3.21.12.zip
-        out: ../protobuf
+        out: ../protobuf.zip
         token: ${{ secrets.GITHUB_TOKEN }}
         unpack: true
     - name: lsProtobuf
