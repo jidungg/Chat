@@ -51,7 +51,7 @@ jobs:
         file: protobuf-cpp-3.21.12.zip
         out: ../protobuf.zip
         token: ${{ secrets.GITHUB_TOKEN }}
-        unpack: true
+        unpack: false
     - name: ls../
       run : ls ../
     - name: lsProtobuf
