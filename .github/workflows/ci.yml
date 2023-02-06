@@ -54,6 +54,8 @@ jobs:
         unpack: true
     - name: lsProtobuf
       run : ls ../protobuf
+    - name: ls../
+      run : ls ../
         
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
