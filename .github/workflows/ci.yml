@@ -77,6 +77,8 @@ jobs:
         ls ../protobuf
         ls ../protobuf/protobuf-3.21.12
         ls ../protobuf/protobuf-3.21.12/cmake
+        ls D:\a\_temp\1949874275\cmake-3.25.2-windows-x86_64
+        ls D:\a\_temp\1949874275\cmake-3.25.2-windows-x86_64\bin\
     
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
