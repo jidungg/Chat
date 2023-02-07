@@ -72,8 +72,9 @@ jobs:
   #      build-dir: ../protobuf/protobuf-3.21.12/sol
       
     - name: Build with CMake
-      run: cmake -DCMAKE_BUILD_TYPE=Release -H'../protobuf/protobuf-3.21.12/cmake' -B '../protobuf/protobuf-3.21.12/sol' 
-      
+      run: |
+        cmake -DCMAKE_BUILD_TYPE=Release -H'../protobuf/protobuf-3.21.12/cmake' -B '../protobuf/protobuf-3.21.12/sol' 
+        cmake --build  '../protobuf/protobuf-3.21.12/sol' 
     - name: ls
       run: |
         ls ../protobuf/protobuf-3.21.12/sol
