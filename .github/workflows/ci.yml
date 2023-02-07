@@ -82,7 +82,7 @@ jobs:
         ls ../protobuf/protobuf-3.21.12/sol/Release
         ls D:/a/Chat/Chat/Libraries/Protobuf
         mkdir D:/a/Chat/Chat/Libraries/Protobuf/Release
-        COPY /Y ../protobuf/protobuf-3.21.12/sol/Release/libprotobuf.lib D:/a/Chat/Chat/Libraries/Protobuf/Release
+        Copy-Item -Path ../protobuf/protobuf-3.21.12/sol/Release/libprotobuf.lib -Destination D:/a/Chat/Chat/Libraries/Protobuf/Release/libprotobuf.lib
         
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
