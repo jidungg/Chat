@@ -71,16 +71,15 @@ jobs:
   #       # Build directory of the CMake project
   #      build-dir: ../protobuf/protobuf-3.21.12/sol
       
-    - name: Build with CMake
+    - name: Build Protobuf with CMake
       run: |
         cmake -H'../protobuf/protobuf-3.21.12/cmake' -B '../protobuf/protobuf-3.21.12/sol' 
         cmake --build  '../protobuf/protobuf-3.21.12/sol' --config Release
-    - name: ls
+    - name: Move libprotobuf.lib
       run: |
         ls ../protobuf/protobuf-3.21.12/sol
-        ls ../protobuf/protobuf-3.21.12/sol/Debug
         ls ../protobuf/protobuf-3.21.12/sol/Release
-      
+        XCOPY /Y ../protobuf/protobuf-3.21.12/sol/Release/libprotobuf.lib "D:/a/Chat/Chat/Libraries/Protobuf/Release"
           
 
     - name: Build
