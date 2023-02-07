@@ -69,6 +69,7 @@ jobs:
         source-dir: ../protobuf/protobuf-3.21.12/cmake
         # Build directory of the CMake project
         build-dir: ../protobuf/protobuf-3.21.12/sol
+        args: CMAKE_BUILD_TYPE=Release
         
     - name: ls
       run: |
