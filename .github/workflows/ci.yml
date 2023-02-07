@@ -60,8 +60,10 @@ jobs:
         # path to place the extract
         pathTarget:  ../protobuf
         
-    - name: Install CMake
-      uses: cmake/cmake-action@v1.1.0
+    - name: CMake Action
+      # You may pin to the exact commit or the version.
+      # uses: threeal/cmake-action@5be43ab87eca44c04ccf84cacaa967009ec77d12
+      uses: threeal/cmake-action@v1.1.0
       with:
         # Source directory of the CMake project
         source-dir: ../protobuf/protobuf-3.21.12/cmake
