@@ -62,8 +62,11 @@ jobs:
     #    ls D:/a/Chat/Chat/Libraries/ServerCore/Release
     #    ls D:/a/Chat/Chat/Libraries/Protobuf/Release
         
+
     - name: Build
-      run: cmake --build .
+      run: |
+        cmake --configure .
+        cmake --build .
 
 #    - name: Add MSBuild to PATH
 #      uses: microsoft/setup-msbuild@v1.0.2
