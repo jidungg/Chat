@@ -63,9 +63,10 @@ jobs:
     #    ls D:/a/Chat/Chat/Libraries/Protobuf/Release
         
 
-    - name: Setup Visual Studio
-      uses: microsoft/setup-visualstudio@v1
-
+    - name: Visual Studio shell
+      # You may pin to the exact commit or the version.
+      # uses: egor-tensin/vs-shell@9a932a62d05192eae18ca370155cf877eecc2202
+      uses: egor-tensin/vs-shell@v2
 
     - name: Build solution
       run: |
