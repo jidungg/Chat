@@ -71,8 +71,11 @@ jobs:
         build-dir: ../protobuf/protobuf-3.21.12/sol
         
     - name: ls
-      run: ls ../protobuf/protobuf-3.21.12/sol
-
+      run: |
+        ls ../protobuf/protobuf-3.21.12/sol
+        ls ../protobuf/protobuf-3.21.12/sol/Debug
+        ls ../protobuf/protobuf-3.21.12/sol/Release
+      
           
 
     - name: Build
