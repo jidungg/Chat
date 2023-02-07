@@ -61,14 +61,13 @@ jobs:
         pathTarget:  ../protobuf
         
     - name: Install CMake
-      uses: cmake/cmake-action@v1
+      uses: cmake/cmake-action@v1.1.0
       with:
-        cmake-version: '3.19.4'
+        # Source directory of the CMake project
+        source-dir: ../protobuf/protobuf-3.21.12/cmake
+        # Build directory of the CMake project
+        build-dir: ../protobuf/protobuf-3.21.12/
 
-    - name: Generate protobuf library solution with CMake
-      run: |
-        cmake -H . -B build
-    
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
       # Add additional options to the MSBuild command line here (like platform or verbosity level).
