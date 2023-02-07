@@ -64,14 +64,14 @@ jobs:
       # You may pin to the exact commit or the version.
       # uses: threeal/cmake-action@5be43ab87eca44c04ccf84cacaa967009ec77d12
       uses: threeal/cmake-action@v1.1.0
-       ##with:
-       #  # Source directory of the CMake project
-       #  source-dir: ../protobuf/protobuf-3.21.12/cmake
-       #  # Build directory of the CMake project
-       #  build-dir: ../protobuf/protobuf-3.21.12/sol
-       #  args: -DCMAKE_BUILD_TYPE=Release
-    - name: build with cmake
-      run: cmake -DCMAKE_BUILD_TYPE=Release -H"../protobuf/protobuf-3.21.12/cmake" -B"../protobuf/protobuf-3.21.12/sol"
+      with:
+         # Source directory of the CMake project
+         source-dir: ../protobuf/protobuf-3.21.12/cmake
+         # Build directory of the CMake project
+         build-dir: ../protobuf/protobuf-3.21.12/sol
+
+    - name: build with cmake Release
+      run: cmake --build "../protobuf/protobuf-3.21.12/sol" -DCMAKE_BUILD_TYPE=Release 
       
     - name: ls
       run: |
