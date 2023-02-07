@@ -65,11 +65,11 @@ jobs:
       # uses: threeal/cmake-action@5be43ab87eca44c04ccf84cacaa967009ec77d12
       uses: threeal/cmake-action@v1.1.0
       with:
-        args: -H../protobuf/protobuf-3.21.12/cmake -B../protobuf/protobuf-3.21.12/sol -DCMAKE_BUILD_TYPE=Release 
+        args: -DCMAKE_BUILD_TYPE=Release 
          # Source directory of the CMake project
-         #source-dir: ../protobuf/protobuf-3.21.12/cmake
+        source-dir: ../protobuf/protobuf-3.21.12/cmake 
          # Build directory of the CMake project
-         #build-dir: ../protobuf/protobuf-3.21.12/sol
+        build-dir: ../protobuf/protobuf-3.21.12/sol
       
     - name: ls
       run: |
