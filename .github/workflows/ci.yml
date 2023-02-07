@@ -79,6 +79,8 @@ jobs:
       run: |
         ls ../protobuf/protobuf-3.21.12/sol
         ls ../protobuf/protobuf-3.21.12/sol/Release
+        mkdir D:/a/Chat/Chat/Libraries/Protobuf/Release
+        ls D:/a/Chat/Chat/Libraries/Protobuf
         COPY /Y ../protobuf/protobuf-3.21.12/sol/Release/libprotobuf.lib "D:/a/Chat/Chat/Libraries/Protobuf/Release"
           
 
