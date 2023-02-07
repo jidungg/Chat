@@ -63,10 +63,13 @@ jobs:
     #    ls D:/a/Chat/Chat/Libraries/Protobuf/Release
         
 
-    - name: Build
+    - name: Setup Visual Studio
+      uses: microsoft/setup-visualstudio@v1
+
+
+    - name: Build solution
       run: |
-        cmake --configure .
-        cmake --build .
+        msbuild Chat.sln /p:Configuration=Release /m
 
 #    - name: Add MSBuild to PATH
 #      uses: microsoft/setup-msbuild@v1.0.2
