@@ -75,19 +75,13 @@ jobs:
       run: |
         cmake -H'../protobuf/protobuf-3.21.12/cmake' -B '../protobuf/protobuf-3.21.12/sol' 
         cmake --build  '../protobuf/protobuf-3.21.12/sol' --config Release
-
-    - name: Copy file
-      uses: canastro/copy-action@0.0.2
-      with:
-        source: "../protobuf/protobuf-3.21.12/sol/Release/libprotobuf.lib"
-        target: "D:/a/Chat/Chat/Libraries/Protobuf/Release/libprotobuf.lib"
         
     - name: Move libprotobuf.lib
       run: |
         ls ../protobuf/protobuf-3.21.12/sol
         ls ../protobuf/protobuf-3.21.12/sol/Release
         ls D:/a/Chat/Chat/Libraries/Protobuf
-        ls D:/a/Chat/Chat/Libraries/Protobuf/Release
+        COPY /Y ../protobuf/protobuf-3.21.12/sol/Release/libprotobuf.lib D:/a/Chat/Chat/Libraries/Protobuf/Release/libprotobuf.lib
         
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
