@@ -68,6 +68,11 @@ jobs:
       # uses: egor-tensin/vs-shell@9a932a62d05192eae18ca370155cf877eecc2202
       uses: egor-tensin/vs-shell@v2
 
+    - name: Print environment variables
+      run: |
+        echo %INCLUDE%
+        echo %LIB%
+
     - name: Build solution
       run: |
         msbuild Chat.sln /p:Configuration=Release /m
