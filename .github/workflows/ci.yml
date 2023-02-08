@@ -20,14 +20,52 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - name: ServerCore Download
+      uses: blauqs/actions-download-asset@v1.2
+      with:
+        repo: jidungg/GameServer
+        version: latest
+        prefix: 1.
+        file: ServerCore.lib
+        out: ./Libraries/ServerCore/Release/ServerCore.lib
+        token: ${{ secrets.GITHUB_TOKEN }}
 
+    - name: Protobuf Download
+      uses: blauqs/actions-download-asset@v1.2
+      with:
+        repo: protocolbuffers/protobuf
+        version: 21.12
+        prefix: v
+        file: protobuf-cpp-3.21.12.zip
+        out: ../protobuf.zip
+        token: ${{ secrets.GITHUB_TOKEN }}
+        unpack: false
+        
+    - name: extract protobuf
+      uses: DuckSoft/extract-7z-action@v1.0
+      with:
+        pathSource:  ../protobuf.zip
+        pathTarget:  ../protobuf
+      
+    - name: Build Protobuf with CMake
+      run: |
+        cmake -H'../protobuf/protobuf-3.21.12/cmake' -B '../protobuf/protobuf-3.21.12/sol' 
+        cmake --build  '../protobuf/protobuf-3.21.12/sol' --config Release
+        
+    - name: Move libprotobuf.lib
+      run: |
+        ls ../protobuf/protobuf-3.21.12/sol
+        ls ../protobuf/protobuf-3.21.12/sol/Release
+        ls D:/a/Chat/Chat/Libraries/Protobuf
+        mkdir D:/a/Chat/Chat/Libraries/Protobuf/Release
+        Copy-Item -Path ../protobuf/protobuf-3.21.12/sol/Release/libprotobuf.lib -Destination D:/a/Chat/Chat/Libraries/Protobuf/Release/libprotobuf.lib
+        ls D:/a/Chat/Chat/Libraries/ServerCore/Release
+        ls D:/a/Chat/Chat/Libraries/Protobuf/Release
+        
     - name: Visual Studio shell
       # You may pin to the exact commit or the version.
       # uses: egor-tensin/vs-shell@9a932a62d05192eae18ca370155cf877eecc2202
       uses: egor-tensin/vs-shell@v2
-
-    - name: Print environment variables
-      run: msbuild Chat.sln /p:ShowIncludes=true
 
     - name: Build solution
       run: |
