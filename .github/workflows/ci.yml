@@ -1,4 +1,4 @@
-name: MSBuild
+name: Continuous integration
 
 on:
   push:
@@ -9,7 +9,8 @@ on:
 env:
   SOLUTION_FILE_PATH: .
   BUILD_CONFIGURATION: Release
-
+  PROTOBUF_VERSION: 21.12
+  
 permissions:
   contents: read
 
@@ -34,7 +35,7 @@ jobs:
       uses: blauqs/actions-download-asset@v1.2
       with:
         repo: protocolbuffers/protobuf
-        version: 21.12
+        version: ${{env.PROTOBUF_VERSION}}
         prefix: v
         file: protobuf-cpp-3.21.12.zip
         out: ../protobuf.zip
@@ -50,17 +51,17 @@ jobs:
     - name: Build Protobuf with CMake
       run: |
         cmake -H'../protobuf/protobuf-3.21.12/cmake' -B '../protobuf/protobuf-3.21.12/sol' 
-        cmake --build  '../protobuf/protobuf-3.21.12/sol' --config Release
+        cmake --build  '../protobuf/protobuf-3.21.12/sol' --config ${{env.BUILD_CONFIGURATION}}
         
     - name: Move libprotobuf.lib
       run: |
         ls ../protobuf/protobuf-3.21.12/sol
-        ls ../protobuf/protobuf-3.21.12/sol/Release
+        ls ../protobuf/protobuf-3.21.12/sol/${{env.BUILD_CONFIGURATION}}
         ls D:/a/Chat/Chat/Libraries/Protobuf
-        mkdir D:/a/Chat/Chat/Libraries/Protobuf/Release
-        Copy-Item -Path ../protobuf/protobuf-3.21.12/sol/Release/libprotobuf.lib -Destination D:/a/Chat/Chat/Libraries/Protobuf/Release/libprotobuf.lib
-        ls D:/a/Chat/Chat/Libraries/ServerCore/Release
-        ls D:/a/Chat/Chat/Libraries/Protobuf/Release
+        mkdir D:/a/Chat/Chat/Libraries/Protobuf/${{env.BUILD_CONFIGURATION}}
+        Copy-Item -Path ../protobuf/protobuf-3.21.12/sol/${{env.BUILD_CONFIGURATION}}/libprotobuf.lib -Destination D:/a/Chat/Chat/Libraries/Protobuf/${{env.BUILD_CONFIGURATION}}/libprotobuf.lib
+        ls D:/a/Chat/Chat/Libraries/ServerCore/${{env.BUILD_CONFIGURATION}}
+        ls D:/a/Chat/Chat/Libraries/Protobuf/${{env.BUILD_CONFIGURATION}}
         
     - name: Visual Studio shell
       # You may pin to the exact commit or the version.
@@ -69,4 +70,4 @@ jobs:
 
     - name: Build solution
       run: |
-        msbuild Chat.sln /p:Configuration=Release /m
+        msbuild Chat.sln /p:Configuration=${{env.BUILD_CONFIGURATION}} /m
