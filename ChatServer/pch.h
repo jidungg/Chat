@@ -12,9 +12,10 @@
 #endif
 
 #include "CorePch.h"
-
+#include "GlobalInstances.h"
 
 using ClientSessionRef = shared_ptr<class ClientSession>;
 
 using UserProfileRef = shared_ptr<class UserProfile>;
 using RoomRef = shared_ptr<class Room>;
+using ClientSessionManagerRef = shared_ptr<class ClientSessionManager>;

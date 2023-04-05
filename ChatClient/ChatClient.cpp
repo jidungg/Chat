@@ -1,5 +1,4 @@
 ﻿#include "pch.h"
-
 #include <iostream>
 #include "Service.h"
 #include "Session.h"
@@ -12,6 +11,9 @@
 
 int main()
 {
+	CoreGlobal::Instantiate();
+	GlobalInstances gInstance;
+
 	std::cout << "Client\n";
 	ServerPacketHandler::Init();
 
@@ -19,7 +21,7 @@ int main()
 	cout << "Input Server IP: ";
 	wcin >> ip;
 
-	ClientServiceRef service = MakeShared<ClientService>(
+	ClientNetServiceRef service = MakeShared<ClientNetService>(
 		NetAddress(ip,7777),
 		MakeShared<IocpCore>(),
 		MakeShared<ServerSession>,

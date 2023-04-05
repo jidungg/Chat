@@ -9,9 +9,6 @@
 #include "Room.h"
 
 
-shared_ptr<ConsoleManager> GConsole = MakeShared<ConsoleManager>();
-
-
 void ConsoleManager::StartChat()
 {
 	Initialize();

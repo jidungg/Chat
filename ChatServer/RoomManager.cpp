@@ -5,7 +5,7 @@
 #include "ClientSession.h"
 #include "UserProfile.h"
 
-shared_ptr<RoomManager> GRoomManager = MakeShared<RoomManager>();
+
 
 void RoomManager::EnterRoomAsync(uint64 roomNum, UserProfileRef user)
 {

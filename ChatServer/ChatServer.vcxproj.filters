@@ -53,6 +53,9 @@
     <ClCompile Include="ClientSessionManager.cpp">
       <Filter>Main</Filter>
     </ClCompile>
+    <ClCompile Include="GlobalInstances.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -86,6 +89,9 @@
       <Filter>Main</Filter>
     </ClInclude>
     <ClInclude Include="ClientSessionManager.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalInstances.h">
       <Filter>Main</Filter>
     </ClInclude>
   </ItemGroup>

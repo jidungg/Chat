@@ -2,7 +2,6 @@
 #include "ClientSessionManager.h"
 #include "ClientSession.h"
 
-ClientSessionManagerRef GSessionManager = MakeShared<ClientSessionManager>();
 
 void ClientSessionManager::Add(ClientSessionRef session)
 {

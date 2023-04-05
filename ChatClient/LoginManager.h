@@ -12,4 +12,3 @@ private:
 	ServerSessionRef serverSession;
 };
 
-extern shared_ptr<LoginManager> GLoginManager;

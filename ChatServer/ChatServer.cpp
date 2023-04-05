@@ -11,7 +11,7 @@ enum
 	WORKER_TICK = 64
 };
 
-void DoWorkerJob(ServerServiceRef& service)
+void DoWorkerJob(ServerNetServiceRef& service)
 {
 	while (true)
 	{
@@ -28,6 +28,9 @@ void DoWorkerJob(ServerServiceRef& service)
 }
 int main()
 {
+	CoreGlobal::Instantiate();
+	GlobalInstances gInstances;
+
 	ClientPacketHandler::Init();
 	std::cout << "Server\n";
 
@@ -35,8 +38,8 @@ int main()
 	addr.sin_family = AF_INET;
 	addr.sin_addr.s_addr = htonl(INADDR_ANY);
 	addr.sin_port = htons(7777);
-
-	ServerServiceRef service = MakeShared<ServerService>(
+	
+	ServerNetServiceRef service = MakeShared<ServerNetService>(
 		NetAddress(addr),
 		MakeShared<IocpCore>(),
 		MakeShared<ClientSession>,

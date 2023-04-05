@@ -6,4 +6,3 @@ public:
 	string name;
 };
 
-extern shared_ptr<UserProfile> GUser;

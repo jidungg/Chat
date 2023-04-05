@@ -53,6 +53,9 @@
     <ClCompile Include="ConsoleManager.cpp">
       <Filter>Main</Filter>
     </ClCompile>
+    <ClCompile Include="GlobalInstances.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -83,6 +86,9 @@
       <Filter>Main</Filter>
     </ClInclude>
     <ClInclude Include="ConsoleManager.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalInstances.h">
       <Filter>Main</Filter>
     </ClInclude>
   </ItemGroup>
