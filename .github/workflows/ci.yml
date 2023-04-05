@@ -26,6 +26,7 @@ jobs:
       with:
         repo: jidungg/GameServer
         version: latest
+        prefix: 2.
         file: ServerCore.lib
         out: ./Libraries/ServerCore/Release/ServerCore.lib
         token: ${{ secrets.GITHUB_TOKEN }}
