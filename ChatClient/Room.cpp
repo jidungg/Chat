@@ -6,7 +6,6 @@
 #include "UserProfile.h"
 #include "ConsoleManager.h"
 
-shared_ptr<Room> GRoom = MakeShared<Room>();
 
 void Room::ReqeusetEnterRoom(PacketSessionRef session, uint64 roomNum)
 {

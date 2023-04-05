@@ -13,6 +13,7 @@
 #endif
 
 #include "CorePch.h"
+#include "GlobalInstances.h"
 
 using UserProfileRef = shared_ptr<class UserProfile>;
 using RoomRef = shared_ptr<class Room>;

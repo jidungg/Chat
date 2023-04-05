@@ -83,4 +83,3 @@ private:
 	ServerSessionRef serverSession;
 };
 
-extern shared_ptr<ConsoleManager> GConsole;

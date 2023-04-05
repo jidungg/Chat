@@ -29,4 +29,3 @@ private:
 	Map<uint64, RoomRef> _rooms;
 };
 
-extern shared_ptr<RoomManager> GRoomManager;

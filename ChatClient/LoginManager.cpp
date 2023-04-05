@@ -5,7 +5,7 @@
 #include "UserProfile.h"
 #include "Protocol.pb.h"
 
-shared_ptr<LoginManager> GLoginManager = MakeShared<LoginManager>();
+
 
 void LoginManager::RequestLogin()
 {

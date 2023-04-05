@@ -20,4 +20,3 @@ private:
 	uint64 roomNumber;
 };
 
-extern shared_ptr<Room> GRoom;
