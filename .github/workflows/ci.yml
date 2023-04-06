@@ -21,7 +21,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: ServerCore Download
+    - name: ServerCore lib Download
       uses: blauqs/actions-download-asset@v1.2
       with:
         repo: jidungg/GameServer
@@ -30,7 +30,18 @@ jobs:
         file: ServerCore.lib
         out: ./Libraries/ServerCore/Release/ServerCore.lib
         token: ${{ secrets.GITHUB_TOKEN }}
-
+        
+    - name: ServerCore header Download
+      uses: blauqs/actions-download-asset@v1.2
+      with:
+        repo: jidungg/GameServer
+        version: latest
+        prefix: 2.
+        file: ServerCoreHeaders.zip
+        out: ./Libraries/ServerCore/
+        token: ${{ secrets.GITHUB_TOKEN }}
+        unpack: true
+        
     - name: Protobuf Download
       uses: blauqs/actions-download-asset@v1.2
       with:
