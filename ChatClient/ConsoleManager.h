@@ -27,25 +27,25 @@ class ConsoleManager
 public:
 	void SetServerSession(ServerSessionRef session) { serverSession = session; }
 	void StartChat();
-	void OnS_CHAT(Protocol::S_CHAT& pkt);
-	void OnS_LEAVE_ROOM();
+	void OnChatReceive(Protocol::S_CHAT& pkt);
+	void OnLeaveRoom();
 	void PrintChat(string chat);
 
 private:
 	void Initialize();
 	void DrawChatScreen();
 	void DrawDividingLine(int32 row);
-	void StartPrompting();
-	void Prompting();
+
 	void SendChat();
 	void SendChatPacket(string msg);
-	void DeletePromptChar();
 	void LeaveChat();
-	void EndPrompting();
+
+	void ProcessInput();
+	void StartPrompting();
 	void PromptInputChar(char input);
+	void DeletePromptChar();
+	void EndPrompting();
 
-
-private:
 	void RepositioningUI();
 	void EraseUI();
 	int32 ScrollScreen(int iRows);

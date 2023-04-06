@@ -7,6 +7,15 @@
 #include "ConsoleManager.h"
 
 
+void Room::WaitForRoomNumber()
+{
+	int roomNumber;
+	cout << "Write Room Number: ";
+	cin >> roomNumber;
+
+	GRoom->ReqeusetEnterRoom(serverSession, roomNumber);
+}
+
 void Room::ReqeusetEnterRoom(PacketSessionRef session, uint64 roomNum)
 {
 	Protocol::C_ENTER_ROOM enterRoomPacket;
@@ -20,6 +29,11 @@ void Room::OnEnterRoom(Protocol::S_ENTER_ROOM& pkt)
 	roomNumber = pkt.roomnumber();
 	for (int i = 0; i < pkt.users_size(); i++)
 		AddUser(const_cast<Protocol::User&> (pkt.users(i)));
+}
+void Room::OnLeaveRoom()
+{
+	isInRoom = false;
+	users.clear();
 }
 void Room::OnOtherEnterRoom(Protocol::S_OTHER_ENTERED_ROOM& pkt)
 {

@@ -116,16 +116,16 @@ void RoomManager::SendLeaveRoomFail(UserProfileRef user)
 
 void RoomManager::SendLeaveRoomOther(uint64 roomNum, UserProfileRef user)
 {
-	Protocol::S_OTHER_LEAVED_ROOM otherEnterPkt;
-	otherEnterPkt.set_roomnumber(roomNum);
+	Protocol::S_OTHER_LEAVED_ROOM otherLeavePkt;
+	otherLeavePkt.set_roomnumber(roomNum);
 
-	Protocol::User u;
-	u.set_id(user->userId);
-	u.set_name(user->name);
-	u.set_usertype(Protocol::PLAYER_TYPE_NORMAL);
-	otherEnterPkt.set_allocated_user(&u);
+	Protocol::User* u = new Protocol::User();
+	u->set_id(user->userId);
+	u->set_name(user->name);
+	u->set_usertype(Protocol::PLAYER_TYPE_NORMAL);
+	otherLeavePkt.set_allocated_user(u);
 
-	auto sendBuffer = ClientPacketHandler::MakeSendBuffer(otherEnterPkt);
+	auto sendBuffer = ClientPacketHandler::MakeSendBuffer(otherLeavePkt);
 	BroadCast(roomNum, sendBuffer);
 }
 

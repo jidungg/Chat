@@ -11,10 +11,11 @@
 
 int main()
 {
+	cout << "Client\n";
+	
 	CoreGlobal::Instantiate();
 	GlobalInstances gInstance;
 
-	std::cout << "Client\n";
 	ServerPacketHandler::Init();
 
 	wstring  ip;

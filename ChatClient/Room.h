@@ -3,8 +3,11 @@
 class Room
 {
 public :
+	void SetServerSession(ServerSessionRef session) { serverSession = session; }
+	void WaitForRoomNumber();
 	void ReqeusetEnterRoom(PacketSessionRef session, uint64 roomNum);
 	void OnEnterRoom(Protocol::S_ENTER_ROOM& pkt);
+	void OnLeaveRoom();
 	void RequesetLeaveRoom(PacketSessionRef session);
 	void OnOtherEnterRoom(Protocol::S_OTHER_ENTERED_ROOM& pkt);
 	void OnOtherLeaveRoom(Protocol::S_OTHER_LEAVED_ROOM& pkt);
@@ -18,5 +21,7 @@ public:
 private:
 	map<uint64, UserProfileRef> users;
 	uint64 roomNumber;
+
+	ServerSessionRef serverSession;
 };
 

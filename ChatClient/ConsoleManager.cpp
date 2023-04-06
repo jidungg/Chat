@@ -57,10 +57,10 @@ void ConsoleManager::StartPrompting()
 
 	GThreadManager->Launch([=]()
 		{
-			Prompting();
+			ProcessInput();
 		});
 }
-void ConsoleManager::Prompting()
+void ConsoleManager::ProcessInput()
 {
 	char inputChar;
 	while (isPrompting)
@@ -74,7 +74,6 @@ void ConsoleManager::Prompting()
 		else if (IsDel(inputChar))
 		{
 			DeletePromptChar();
-
 		}
 		else if (IsESC(inputChar))
 		{
@@ -141,13 +140,13 @@ CONSOLE_SCREEN_BUFFER_INFO* ConsoleManager::GetScreenBufferInfo()
 
 
 
-void ConsoleManager::OnS_CHAT(Protocol::S_CHAT& pkt)
+void ConsoleManager::OnChatReceive(Protocol::S_CHAT& pkt)
 {
 	string chat = pkt.name() + ':' + pkt.msg();
 	PrintChat(chat);
 }
 
-void ConsoleManager::OnS_LEAVE_ROOM()
+void ConsoleManager::OnLeaveRoom()
 {
 	EndPrompting();
 	system("cls");
