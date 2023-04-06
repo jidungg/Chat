@@ -42,11 +42,20 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         unpack: false
         
-    - name: extract protobuf
+    - name : check servercore header
+      run : |
+        ls ./Libraries/ServerCore
+        
+    - name: extract ServerCore header
       uses: DuckSoft/extract-7z-action@v1.0
       with:
         pathSource:  ./Libraries/ServerCore/ServerCoreHeaders.zip
         pathTarget:  ./Libraries/ServerCore
+        
+        
+    - name : check servercore header
+      run : |
+        ls ./Libraries/ServerCore
         
     - name: Protobuf Download
       uses: blauqs/actions-download-asset@v1.2
